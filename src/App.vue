@@ -1,21 +1,42 @@
 <template>
   <div class="app">
-      <div id="nav">
-        <logo></logo>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/about">Всем привет</router-link> |
-        <router-link to="/social">Третья страница</router-link>
-      </div>
-      <router-view/>
+      <Header></Header>
+      <router-view class="container" ></router-view>
       <Footer></Footer>
   </div>
 </template>
 
-<style scoped>
+<style lang="scss">
 body {
-  margin: 0!important;
+  margin: 0;
   padding: 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
+
+.container {
+  width: 280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex: 1 0 auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 708px;
+    padding: 0 30px;
+  }
+}
+
+@media (min-width: 1220px) {
+  .container {
+    width: 1220px;
+    padding: 0;
+  }
+}
+
+
 
 .app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -24,30 +45,15 @@ body {
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
-  display: flex;
-  align-items: center;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-  padding: 0 10px;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
 
 <script>
-import Logo from '@/components/Logo.vue'
+import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'App',
-  components: { Logo, Footer
+  components: { Header, Footer
   }
 }
 

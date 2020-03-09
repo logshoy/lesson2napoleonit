@@ -1,4 +1,5 @@
 <template>
+  <div class="page-footer">
     <div class="page-footer__container">
         <logo></logo>
         <Social></Social>
@@ -6,6 +7,7 @@
           <p class="copyright">© 2020. Все права не защищены</p>
         </div>
       </div>
+  </div>
 </template>
 
 <script>
@@ -17,3 +19,51 @@ export default {
     components: { Logo, Social }
 }
 </script>
+
+<style lang="scss">
+$tablet-width: 768px;
+$desktop-width: 1440px;
+$modily-width-only: 767px;
+
+.page-footer {
+  background: #e5e5e5;
+  flex-shrink: 0;
+}
+
+.page-footer__container {
+  width: 280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-top: 40px;
+  margin-top: 40px;
+}
+
+.page-footer__container-logo {
+  display: flex;
+  align-items: center;
+}
+
+@media (min-width: $tablet-width) {
+  .page-footer__container {
+    width: 708px;
+    padding: 0 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-footer__container-logo {
+    width: 300px;
+  }
+}
+
+@media (min-width: $desktop-width) {
+  .page-footer__container {
+    width: 1220px;
+    padding: 0;
+  }
+}
+
+
+
+</style>
