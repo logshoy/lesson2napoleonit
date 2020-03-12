@@ -1,16 +1,19 @@
-<template>
-  <div class="app">
-      <Header></Header>
-      <router-view class="container" ></router-view>
-      <Footer></Footer>
-  </div>
+<template lang="pug">
+  div(class="app" :class="{ green: checked , gray: !checked }"  ) 
+    Header(:checked="checked" )
+    input(type="checkbox" v-model="checked" ) 
+    label(v-if="checked===true") Зеленая тема
+    label(v-else) Серая тема
+    router-view( class="container")
+    SwitchTheme( text="Hello VueDose!" @click.native="toggleTheme" )
+    Footer(:checked="checked" )
 </template>
 
-<style lang="scss">
+<style lang="stylus">
+html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -20,6 +23,14 @@ body {
   margin: 0 auto;
   padding: 0 20px;
   flex: 1 0 auto;
+}
+
+.gray {
+  background: #e5e5e5;
+}
+
+.green {
+  background: green;
 }
 
 @media (min-width: 768px) {
@@ -36,8 +47,6 @@ body {
   }
 }
 
-
-
 .app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -45,16 +54,41 @@ body {
   color: #2c3e50;
 }
 
+// стили из смены темы
+.light {
+  background-color: white;
+}
+
+.dark {
+  background-color: #000;
+}
+
+
+
+
+
+
 </style>
 
 <script>
 import Header from '@/components/Header.vue'
 import Footer from '@/components/Footer.vue'
+import SwitchTheme from '@/components/SwitchTheme.vue'
 
 export default {
   name: 'App',
-  components: { Header, Footer
-  }
+  components: { Header, Footer, SwitchTheme},
+    data() {
+      return {
+        checked: false,
+        mode: "light"
+      }
+    },
+    methods: {
+      toggleTheme() {
+      this.mode = this.mode === "light" ? "dark" : "light";
+      }
+    }
 }
 
 </script>

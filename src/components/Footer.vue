@@ -1,12 +1,10 @@
 <template lang="pug">
-  .page-footer( :class="{ red: checked , green: !checked }" )
+  .page-footer( :class="{ green: checked , gray: !checked }" )
     .page-footer__container
         logo
-        input( type="checkbox" v-model="checked" ) 
-        label(v-if="checked===true") Красная тема
-        label(v-else) Серая тема
         .copyright
           p(class="copyright") © 2020. Все права не защищены
+        checked 
 </template>
 
 <script>
@@ -16,11 +14,9 @@ import Social from '@/components/Social.vue'
 export default {
     name: 'Footer',
     components: { Logo, Social },
-    data() {
-      return {
-        checked: false
-      }
-    },
+    props: {
+       checked: Boolean
+    }
 }
 </script>
 
@@ -71,13 +67,6 @@ modily-width-only = 767px
   }
 }
 
-.green {
-  background: #e5e5e5;
-}
-
-.red {
-  background: red;
-}
 
 
 </style>

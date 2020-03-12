@@ -1,5 +1,5 @@
 <template lang="pug">
-  .page-header
+  .page-header( :class="{ green: checked , gray: !checked }" )
     .page-header__container
       logo
       router-link(to="/") Home
@@ -21,10 +21,13 @@ export default {
         showModal: false
     }
   },
+  props: {
+    checked: Boolean
+  }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus">
 
 
 tablet-width = 768px
