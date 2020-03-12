@@ -1,15 +1,8 @@
-<template>
-    <div>
-        <div class="static" 
-            :class="{ red: isActive , green: !isActive } " 
-            @click="isActive = !isActive">
-            {{ msg }}
-        </div>
-        <div :style="{ background: color }">
-            {{ skillsMsg }}
-        </div>
-        <input type="text" v-model="color">
-    </div>
+<template lang="pug">
+    div 
+        div(class = "static" :class="{ red: isActive , green: !isActive } " @click="isActive = !isActive") {{ msg }}
+        div(:style="{ background: color }") {{ skillsMsg }} 
+        input(type="text" v-model="color")
 </template>
 
 <script>
@@ -27,7 +20,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 .red {
     background: red;
 }

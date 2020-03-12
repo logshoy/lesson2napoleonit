@@ -1,18 +1,9 @@
-<template>
-    <div class="modal-mask">
-        <div class="modal-wrapper">
-            <div class="modal-container">
-              <div class="modal-footer">
-                <slot name="footer">
-                  <a class="form-number__number" href="tel:+79823656937">+7(982)365-69-37</a>
-                  <button class="modal-default-button" @click="$emit('close')">
-                    OK
-                  </button>
-                </slot>
-              </div>
-            </div>
-          </div>
-        </div>
+<template lang="pug">
+  .modal-mask
+    .modal-wrapper
+      .modal-container
+        a(class="form-number__number" href="tel:+79823656937") +7(982)365-69-37
+        button(class="modal-default-button" @click="$emit('close')" ) OK
 </template>
 
 <script>
@@ -24,8 +15,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-    .modal-mask {
+<style lang="stylus" scoped>
+.modal-mask {
   position: fixed;
   z-index: 9998;
   top: 0;
@@ -53,14 +44,6 @@ export default {
   font-family: Helvetica, Arial, sans-serif;
 }
 
-.modal-header h3 {
-  margin-top: 0;
-  color: #42b983;
-}
-
-.modal-body {
-  margin: 20px 0;
-}
 
 .modal-default-button {
   float: right;

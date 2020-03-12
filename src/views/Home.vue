@@ -1,8 +1,7 @@
-<template>
-  <div class="home">
-    <HelloWorld />
-    <Education></Education>
-  </div>
+<template lang="pug">
+  .home
+    HelloWorld 
+    Education
 </template>
 
 <script>

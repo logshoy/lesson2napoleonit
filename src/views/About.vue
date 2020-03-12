@@ -1,11 +1,10 @@
-<template>
-  <div class="about">
-    <h2>{{ skillsMsg }}</h2>
-    <ul>
-      <li v-for="item in skills" :key="item.link"> <span class="page-main__skills"> {{ item.name }} :</span> {{ item.desctiption }}</li>
-    </ul>
-    <work :skillsMsg="skillsMsg" />
-  </div>
+<template lang="pug">
+  .about
+    h2 {{ skillsMsg }}
+    ul
+      li(v-for="item in skills" :key="item.link") 
+        span(class="page-main__skills") {{ item.name }} : {{ item.desctiption }}
+    work :skillsMsg="skillsMsg"
 </template>
 
 <script>
@@ -26,7 +25,7 @@ export default {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 ul {
   list-style: none;
   padding: 0;

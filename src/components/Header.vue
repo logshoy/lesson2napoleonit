@@ -1,18 +1,12 @@
-<template>
-  <div>
-    <div class="page-header">
-        <div class="page-header__container">
-            <logo></logo>
-            <router-link to="/">Home</router-link> 
-            <router-link to="/about">Навыки</router-link> 
-            <router-link to="/third">Третья страница</router-link>
-            <button id="show-modal" @click="showModal = true">Показать номер</button>
-            <modal v-if="showModal" @close="showModal = false">
-              <h3 slot="header">custom header</h3>
-            </modal>
-        </div>
-    </div>
-  </div>
+<template lang="pug">
+  .page-header
+    .page-header__container
+      logo
+      router-link(to="/") Home
+      router-link(to="/about") Навыки
+      router-link(to="/third") Третья страница
+      button(id="show-modal" @click="showModal = true") Показать номер
+      modal(v-if="showModal" @close="showModal = false")
 </template>
 
 <script>
@@ -30,12 +24,12 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 
 
-$tablet-width: 768px;
-$desktop-width: 1440px;
-$modily-width-only: 767px;
+tablet-width = 768px
+desktop-width = 1440px
+modily-width-only = 767px
 
 .page-header {
   background-color: #e5e5e5;
@@ -65,7 +59,7 @@ $modily-width-only: 767px;
   margin: 10px;
 }
 
-@media (min-width: $tablet-width) {
+@media (min-width: tablet-width) {
   .page-header__container {
     flex-direction: row;
     width: 708px;
@@ -74,7 +68,7 @@ $modily-width-only: 767px;
 
 }
 
-@media (min-width: $desktop-width) {
+@media (min-width: desktop-width) {
 
   .page-header__container {
     width: 1220px;

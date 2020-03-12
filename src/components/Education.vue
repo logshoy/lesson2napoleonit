@@ -1,14 +1,10 @@
-<template>
-    <div class="page-main__universite">
-        <div class="page-main__container">    
-            <h2>{{ educatuonMsg }}</h2>
-            <ul>
-                <li v-for="item in educatuonList" :key="item.link"> {{ item.name }}
-                    <span> {{ item.description }} </span>
-                </li>
-            </ul>
-        </div>
-    </div>
+<template lang="pug">
+    .page-main__universite
+        .page-main__container    
+            h2 {{ educatuonMsg }}
+            ul
+                li( v-for="item in educatuonList" :key="item.link") {{ item.name }}
+                    span {{ item.description }} 
 </template>
 
 <script>
@@ -26,11 +22,11 @@ export default {
 }
 </script>
 
-<style lang="scss"  scoped>
+<style lang="stylus"  scoped>
 
-$tablet-width: 768px;
-$desktop-width: 1440px;
-$modily-width-only: 767px;
+tablet-width = 768px;
+desktop-width = 1440px;
+modily-width-only = 767px;
 
 
 ul {
@@ -110,7 +106,7 @@ h3 {
 }
 
 
-@media (min-width: $tablet-width) {
+@media (min-width: tablet-width) {
   .page-main__container {
     width: 708px;
     padding: 0 30px;
@@ -142,7 +138,7 @@ h3 {
 
 }
 
-@media (min-width: $desktop-width) {
+@media (min-width: desktop-width) {
   .page-main__container {
     width: 1220px;
     padding: 0;

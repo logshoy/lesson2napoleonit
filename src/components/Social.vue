@@ -1,15 +1,9 @@
-<template>
-    <div>
-        <div class="social-link">
-          <ul class="social-link__list">
-            <li v-for="i in socialLink" :key="i" class="social-link__item">
-              <a :href="i.link">
-                <span>{{ i.name }}</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-    </div>
+<template lang="pug">
+    .social-link
+          ul(class="social-link__list")
+            li(v-for="i in socialLink" :key="i" class="social-link__item")
+              a(:href="i.link")
+                span {{ i.name }}
 </template>
 
 <script>
@@ -30,7 +24,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 ul {
   list-style: none;
   display: flex;

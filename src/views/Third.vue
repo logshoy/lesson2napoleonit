@@ -1,12 +1,8 @@
-<template>
-  <div class="third">
-    <h2>Третья страница с циклом</h2>
-    <ul>
-      <li v-for="value in books" :key="value" @click="color = red" :style="styleObject">
-        {{ value.title }} - {{ value.name }} - {{ value.year }}
-      </li>
-    </ul>
-  </div>
+<template lang="pug">
+  .third
+    h2 Третья страница с циклом
+    ul
+      li( v-for="value in books" :key="value" @click="color = red" :style="styleObject")  {{ value.title }} - {{ value.name }} - {{ value.year }}
 </template>
 
 <script>

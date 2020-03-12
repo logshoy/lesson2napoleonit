@@ -1,9 +1,8 @@
-<template>
-  <div class="hello">
-    <h1>{{ myName }}</h1>
-    <p>{{ aboutMe }}</p>
-    <Education></Education>
-  </div>
+<template lang = "pug">
+  .hello
+    h1 {{ myName }}
+    p {{ aboutMe }}
+    Education
 </template>
 
 <script>
@@ -21,7 +20,7 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="stylus" scoped>
 h3 {
   margin: 40px 0 0;
 }

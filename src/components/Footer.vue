@@ -1,13 +1,12 @@
-<template>
-  <div class="page-footer">
-    <div class="page-footer__container">
-        <logo></logo>
-        <Social></Social>
-        <div class="copyright">
-          <p class="copyright">© 2020. Все права не защищены</p>
-        </div>
-      </div>
-  </div>
+<template lang="pug">
+  .page-footer( :class="{ red: checked , green: !checked }" )
+    .page-footer__container
+        logo
+        input( type="checkbox" v-model="checked" ) 
+        label(v-if="checked===true") Красная тема
+        label(v-else) Серая тема
+        .copyright
+          p(class="copyright") © 2020. Все права не защищены
 </template>
 
 <script>
@@ -16,14 +15,19 @@ import Social from '@/components/Social.vue'
 
 export default {
     name: 'Footer',
-    components: { Logo, Social }
+    components: { Logo, Social },
+    data() {
+      return {
+        checked: false
+      }
+    },
 }
 </script>
 
-<style lang="scss">
-$tablet-width: 768px;
-$desktop-width: 1440px;
-$modily-width-only: 767px;
+<style lang="stylus">
+tablet-width = 768px
+desktop-width = 1440px
+modily-width-only = 767px
 
 .page-footer {
   background: #e5e5e5;
@@ -43,13 +47,16 @@ $modily-width-only: 767px;
   align-items: center;
 }
 
-@media (min-width: $tablet-width) {
+@media (min-width: tablet-width) {
   .page-footer__container {
     width: 708px;
     padding: 0 30px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+  }
+
+  .page-footer__container input {
+    margin-right: 20px;
   }
 
   .page-footer__container-logo {
@@ -57,13 +64,20 @@ $modily-width-only: 767px;
   }
 }
 
-@media (min-width: $desktop-width) {
+@media (min-width: desktop-width) {
   .page-footer__container {
     width: 1220px;
     padding: 0;
   }
 }
 
+.green {
+  background: #e5e5e5;
+}
+
+.red {
+  background: red;
+}
 
 
 </style>
