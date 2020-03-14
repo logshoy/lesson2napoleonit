@@ -1,11 +1,8 @@
 <template lang="pug">
   div(class="app" :class="{ green: checked , gray: !checked }"  ) 
     Header(:checked="checked" )
-    input(type="checkbox" v-model="checked" ) 
-    label(v-if="checked===true") Зеленая тема
-    label(v-else) Серая тема
     router-view( class="container")
-    SwitchTheme( text="Hello VueDose!" @click.native="toggleTheme" )
+    SwitchTheme( v-model="checked")
     Footer(:checked="checked" )
 </template>
 
@@ -80,13 +77,7 @@ export default {
   components: { Header, Footer, SwitchTheme},
     data() {
       return {
-        checked: false,
-        mode: "light"
-      }
-    },
-    methods: {
-      toggleTheme() {
-      this.mode = this.mode === "light" ? "dark" : "light";
+        checked: false
       }
     }
 }
