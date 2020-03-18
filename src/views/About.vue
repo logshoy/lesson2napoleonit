@@ -1,33 +1,44 @@
 <template lang="pug">
   .about
-    h2 {{ skillsMsg }}
-    ul
-      li(v-for="item in skills" :key="item.link") 
-        span(class="page-main__skills") {{ item.name }} : {{ item.desctiption }}
-    work :skillsMsg="skillsMsg"
+    h1 This is an about page
+    h2 {{ myVariable }}
+    h2(@click="incrementCount") {{ mySecondVariable }}
+    input(v-model="inputFilter")
+    .todos
+      ul
+        li(v-for="todo in filteredJson" :key="todo.id") {{todo.title}}
+
 </template>
-
 <script>
-import Work from '@/components/Work.vue'
-
-
 export default {
-  components: { Work },
-  data() {
-    return {
-      skillsMsg: 'Личные качества',
-      skills: [{name:'Иностранные языки', desctiption:'Русский - родной, Английский - Intermideate' },
-      {name:'Компьютерные навыки', desctiption:'HTML5, CSS3, Знание JavaScript на базовом уровне, Препроцессор SASS, Адаптивная верстка, Разметка по методике БЭМ, Контроль версий, Знание Photoshop для работ с макетом' },
-      {name:'Личные качества', desctiption:'Отвественность, коммуникабельность, трудолюбие, саморазвитие, структуное мышление' }]
+  name: "About",
+  data(){
+    return{
+      myJson:[],
+      inputFilter:''
     }
+  },
+  methods: {
+    incrementCount() {
+      this.$store.commit('increment')
+    },
+    getFromChild(message) {
+      alert(message)
+    }
+  },
+  computed:{
+    // vuexData() {
+    //   return this.$store.state.getters.myVariable
+    // },
+    // ...mapGetters(['myVariable', 'mySecondVariable','count']),
+    // filteredJson() {
+    //   return this.myJson.filter(element => element.title.includes(this.inputFilter))
+    // }
+  },
+  mounted() {
+    fetch('https://jsonplaceholder.typicode.com/todos')
+            .then(response => response.json())
+            .then(json => this.myJson=json) 
   }
 }
 </script>
-
-
-<style lang="stylus" scoped>
-ul {
-  list-style: none;
-  padding: 0;
-}
-</style>

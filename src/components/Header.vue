@@ -5,6 +5,8 @@
       router-link(to="/") Home
       router-link(to="/about") Навыки
       router-link(to="/third") Третья страница
+      router-link(to="/formvuelidate") Валидация формы
+      router-link(to="/vuex") Vuex
       button(id="show-modal" @click="showModal = true") Показать номер
       modal(v-if="showModal" @close="showModal = false")
 </template>

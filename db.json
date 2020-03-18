@@ -1,0 +1,28 @@
+{
+  "ivans": [
+    {
+      "name": "Иван",
+      "old": 23,
+      "buckwheat": 5,
+      "id": 1
+    },
+    {
+      "name": "Иван",
+      "old": 23,
+      "buckwheat": 5,
+      "id": 2
+    },
+    {
+      "name": "Иван",
+      "old": 23,
+      "buckwheat": 8,
+      "id": 3
+    },
+    {
+      "name": "Иван",
+      "old": 24,
+      "buckwheat": 5,
+      "id": 4
+    }
+  ]
+}
